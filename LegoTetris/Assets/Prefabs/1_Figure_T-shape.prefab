@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 7028202353681969038}
   - component: {fileID: 7028202353681969039}
   - component: {fileID: 7028202353681969036}
+  - component: {fileID: 1354981211927067499}
+  - component: {fileID: 1425298487}
   m_Layer: 0
   m_Name: 1_Figure_T-shape
   m_TagString: Untagged
@@ -123,6 +125,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00164562dedfc90418a64418ef5824d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1354981211927067499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7028202353681969042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb290bf9f15dee949ad3463d16ff4bec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1425298487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7028202353681969042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dd6548366438f4c8706f91d7717654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1366988084455731691
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133,7 +159,7 @@ PrefabInstance:
     - target: {fileID: 8318628611955497244, guid: f83bf6802151cee4c89dcc26684534ea,
         type: 3}
       propertyPath: m_Name
-      value: Quad
+      value: FigureQuad
       objectReference: {fileID: 0}
     - target: {fileID: 8318628611955497245, guid: f83bf6802151cee4c89dcc26684534ea,
         type: 3}
@@ -208,7 +234,7 @@ PrefabInstance:
     - target: {fileID: 8318628611955497244, guid: f83bf6802151cee4c89dcc26684534ea,
         type: 3}
       propertyPath: m_Name
-      value: Quad
+      value: FigureQuad
       objectReference: {fileID: 0}
     - target: {fileID: 8318628611955497245, guid: f83bf6802151cee4c89dcc26684534ea,
         type: 3}
@@ -283,7 +309,7 @@ PrefabInstance:
     - target: {fileID: 8318628611955497244, guid: f83bf6802151cee4c89dcc26684534ea,
         type: 3}
       propertyPath: m_Name
-      value: Quad
+      value: FigureQuad
       objectReference: {fileID: 0}
     - target: {fileID: 8318628611955497245, guid: f83bf6802151cee4c89dcc26684534ea,
         type: 3}
@@ -358,7 +384,7 @@ PrefabInstance:
     - target: {fileID: 8318628611955497244, guid: f83bf6802151cee4c89dcc26684534ea,
         type: 3}
       propertyPath: m_Name
-      value: Quad
+      value: FigureQuad
       objectReference: {fileID: 0}
     - target: {fileID: 8318628611955497245, guid: f83bf6802151cee4c89dcc26684534ea,
         type: 3}

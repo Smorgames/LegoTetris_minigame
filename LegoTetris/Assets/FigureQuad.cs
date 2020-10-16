@@ -9,6 +9,8 @@ public class FigureQuad : MonoBehaviour
 
     private SpriteRenderer _spriteRenderer;
 
+    private Cell _chosenCell;
+
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -16,18 +18,28 @@ public class FigureQuad : MonoBehaviour
         _enableColor = new Color(1f, 1f, 1f, 1f);
     }
 
-    public void SetCellPlacePossibility(bool canPlaceOnTheCell)
+    public void SetCellPlacePossibility(bool canPlaceOnTheCell, Cell cell)
     {
         _canPlaceOnTheCell = canPlaceOnTheCell;
+        _chosenCell = cell;
 
         if (_canPlaceOnTheCell)
-            SetColor(_enableColor);
+            FigureQuadVisualDisplay(_enableColor, 1.1f);
         else
-            SetColor(_disableColor);
+            FigureQuadVisualDisplay(_disableColor, 1f);
     }
 
-    private void SetColor(Color color)
+    private void FigureQuadVisualDisplay(Color color, float quadSize)
     {
         _spriteRenderer.color = color;
+        transform.localScale = new Vector3(quadSize, quadSize, 1f);
+    }
+
+    public bool CanPlaceOnTheCell { get { return _canPlaceOnTheCell; } }
+
+    public void PlaceFigure()
+    {
+        _spriteRenderer.color = _enableColor;
+        _chosenCell.PlaceFigureQuad(gameObject);
     }
 }

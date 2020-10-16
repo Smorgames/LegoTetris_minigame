@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - FigureQuad
+  - Cell
   layers:
   - Default
   - TransparentFX

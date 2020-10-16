@@ -2,16 +2,35 @@
 
 public class Cell : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    private Collider2D _collider;
+
+    private void Start()
+    {
+        _collider = GetComponent<Collider2D>();
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "FigureQuad")
-            collision.GetComponent<FigureQuad>().SetCellPlacePossibility(true);
+            SetCellPlacePossibility(collision, true, this);
 
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "FigureQuad")
-            collision.GetComponent<FigureQuad>().SetCellPlacePossibility(false);
+            SetCellPlacePossibility(collision, false, null);
+    }
+
+    private void SetCellPlacePossibility(Collider2D figure, bool isPossible, Cell cell)
+    {
+        if (figure.GetComponent<FigureQuad>() != null)
+            figure.GetComponent<FigureQuad>().SetCellPlacePossibility(isPossible, cell);
+    }
+
+    public void PlaceFigureQuad(GameObject quad)
+    {
+        quad.transform.position = transform.position;
+        _collider.enabled = false;
     }
 }
