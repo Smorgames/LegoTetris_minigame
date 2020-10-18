@@ -4,9 +4,12 @@ public class Cell : MonoBehaviour
 {
     private Collider2D _collider;
 
+    private FigureQuad _figureQuadPlaced; public FigureQuad FigureQuadPlaced { get { return _figureQuadPlaced; } set { _figureQuadPlaced = value; } }
+
     private void Start()
     {
         _collider = GetComponent<Collider2D>();
+        ColliderEnabled(true);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -28,9 +31,8 @@ public class Cell : MonoBehaviour
             figure.GetComponent<FigureQuad>().SetCellPlacePossibility(isPossible, cell);
     }
 
-    public void PlaceFigureQuad(GameObject quad)
+    public void ColliderEnabled(bool boolean)
     {
-        quad.transform.position = transform.position;
-        _collider.enabled = false;
+        _collider.enabled = boolean;
     }
 }
