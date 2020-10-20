@@ -11,7 +11,16 @@ public class GameMaster : MonoBehaviour
 
     private SpawnPosition _spawnPosition = new SpawnPosition();
 
-    private GameField _gameField;
+    private GameField _gameField; public GameField GameField { get { return _gameField; } }
+
+    #region Singleton
+    public static GameMaster instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+    #endregion
 
     private void Start()
     {
@@ -36,9 +45,17 @@ public class GameMaster : MonoBehaviour
         {
             for (int j = 0; j < _verticalSize; j++)
             {
-                GameObject cell = (GameObject)Instantiate(spawnObject, new Vector2(i, j) * spawnPosition.CellSize + spawnPosition.Offset, angle);
-                cell.transform.SetParent(transform);
-                cell.GetComponent<CellSpriteController>().ChangeCellSprite(counter % 2);
+                GameObject cellGameObject = 
+                Instantiate(spawnObject, new Vector2(i, j) * spawnPosition.CellSize + spawnPosition.Offset, angle);
+
+                cellGameObject.transform.SetParent(transform);
+                cellGameObject.GetComponent<CellSpriteController>().ChangeCellSprite(counter % 2);
+
+                Cell cell = cellGameObject.GetComponent<Cell>();
+
+                _gameField.AddCell(i, j, cell);
+                cell.SetXYCoordinates(i, j);
+
                 counter++;
             }
 

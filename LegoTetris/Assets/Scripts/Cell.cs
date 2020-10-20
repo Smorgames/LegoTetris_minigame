@@ -4,7 +4,11 @@ public class Cell : MonoBehaviour
 {
     private Collider2D _collider;
 
+    int x = 0;
+    int y = 0;
     private FigureQuad _figureQuadPlaced; public FigureQuad FigureQuadPlaced { get { return _figureQuadPlaced; } set { _figureQuadPlaced = value; } }
+
+    private int cellPlacedIndex = 0; public int CellPlacedIndex { get { return cellPlacedIndex } }
 
     private void Start()
     {
@@ -34,5 +38,16 @@ public class Cell : MonoBehaviour
     public void ColliderEnabled(bool boolean)
     {
         _collider.enabled = boolean;
+
+        if (boolean)
+            cellPlacedIndex = 0;
+        else
+            cellPlacedIndex = 1;
+    }
+
+    public void SetXYCoordinates(int xCoordinate, int yCoordinate)
+    {
+        x = xCoordinate;
+        y = yCoordinate;
     }
 }
