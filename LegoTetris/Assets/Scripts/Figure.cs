@@ -4,6 +4,8 @@ public class Figure : MonoBehaviour
 {
     private FigureQuad[] _figureQuads;
 
+    public FigureSpawnPoint SpawnPoint { get; set; }
+
     private void Start()
     {
         _figureQuads = new FigureQuad[transform.childCount];
@@ -18,6 +20,10 @@ public class Figure : MonoBehaviour
         {
             for (int i = 0; i < transform.childCount; i++)
                 _figureQuads[i].PlaceFigure();
+
+            GameMaster.instance.GameField.IsLineFull();
+
+            SpawnPoint.SpawnRandomFigure();
 
             Destroy(gameObject, 1f);
         }

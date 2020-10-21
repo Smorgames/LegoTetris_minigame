@@ -8,7 +8,7 @@ public class Cell : MonoBehaviour
     int y = 0;
     private FigureQuad _figureQuadPlaced; public FigureQuad FigureQuadPlaced { get { return _figureQuadPlaced; } set { _figureQuadPlaced = value; } }
 
-    private int cellPlacedIndex = 0; public int CellPlacedIndex { get { return cellPlacedIndex } }
+    private int cellPlacedIndex = 0; public int CellPlacedIndex { get { return cellPlacedIndex; } }
 
     private void Start()
     {
@@ -49,5 +49,11 @@ public class Cell : MonoBehaviour
     {
         x = xCoordinate;
         y = yCoordinate;
+    }
+
+    public void CleanCell()
+    {
+        _figureQuadPlaced.DestroyFigureQuad();
+        ColliderEnabled(true);
     }
 }

@@ -6,6 +6,7 @@ public class FigureQuad : MonoBehaviour
     private Color _enableColor;
     private Color _disableColor;
 
+    [SerializeField] GameObject disappearEffect;
     private bool _canPlaceOnTheCell = false; public bool CanPlaceOnTheCell { get { return _canPlaceOnTheCell; } }
 
     private SpriteRenderer _spriteRenderer;
@@ -15,6 +16,7 @@ public class FigureQuad : MonoBehaviour
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+
         _disableColor = _spriteRenderer.color;
         _enableColor = new Color(1f, 1f, 1f, 1f);
     }
@@ -52,5 +54,14 @@ public class FigureQuad : MonoBehaviour
 
         transform.SetParent(null);
         FigureQuadVisualDisplay(_enableColor);
+    }
+
+    public void DestroyFigureQuad()
+    {
+        GameObject effect = Instantiate(disappearEffect, transform.position, Quaternion.identity);
+        effect.GetComponent<ParticleSystem>().textureSheetAnimation.SetSprite(0, _spriteRenderer.sprite);
+
+        Destroy(effect, 2f);
+        Destroy(gameObject);
     }
 }
