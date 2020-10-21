@@ -48,4 +48,4 @@ MonoBehaviour:
   _cellSpawnObject: {fileID: 4221867901879006598, guid: 476417d9f41bfa344b98da33e41d19c5,
     type: 3}
   _cellSize: 0.45
-  _offset: {x: -3.375, y: -6.115}
+  _offset: {x: -3.375, y: -6.16}
