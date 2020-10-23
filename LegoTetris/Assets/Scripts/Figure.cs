@@ -6,22 +6,31 @@ public class Figure : MonoBehaviour
 
     public FigureSpawnPoint SpawnPoint { get; set; }
 
+    private int scoreAmount = 10;
+
+    private Collider2D figureCollider;
+
     private void Start()
     {
         _figureQuads = new FigureQuad[transform.childCount];
 
         for (int i = 0; i < transform.childCount; i++)
             _figureQuads[i] = transform.GetChild(i).GetComponent<FigureQuad>();
+
+        figureCollider = GetComponent<Collider2D>();
     }
 
     private void OnMouseUp()
     {
         if (CanPlaceFigure())
         {
+            figureCollider.enabled = false;
+
             for (int i = 0; i < transform.childCount; i++)
                 _figureQuads[i].PlaceFigure();
 
-            GameMaster.instance.GameField.IsLineFull();
+            int multiplyer = GameMaster.instance.GameField.IsLineFull();
+            GAME_MANAGER.instance.AddScore(scoreAmount * multiplyer);
 
             SpawnPoint.SpawnRandomFigure();
 

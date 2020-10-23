@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1555482221512204099}
   - component: {fileID: 1555482221512204098}
+  - component: {fileID: 1555482220815694649}
   m_Layer: 0
   m_Name: GameField
   m_TagString: Untagged
@@ -49,3 +50,15 @@ MonoBehaviour:
     type: 3}
   _cellSize: 0.45
   _offset: {x: -3.375, y: -6.16}
+--- !u!114 &1555482220815694649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555482221512204100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d17e67368a096cc479c5fbe52cbcaa68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
