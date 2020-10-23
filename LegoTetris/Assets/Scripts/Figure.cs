@@ -2,7 +2,7 @@
 
 public class Figure : MonoBehaviour
 {
-    private FigureQuad[] _figureQuads;
+    private FigureQuad[] _figureQuads; public FigureQuad[] FigureQuads { get; }
 
     public FigureSpawnPoint SpawnPoint { get; set; }
 
@@ -46,5 +46,23 @@ public class Figure : MonoBehaviour
     {
         for (int i = 0; i < array.Length; i++)
             Debug.Log(array[i]);
+    }
+
+    public void RotateAllFigureQuads(Vector3 rotatationAngle)
+    {
+        foreach (FigureQuad figureQuad in _figureQuads)
+            figureQuad.transform.Rotate(rotatationAngle);
+    }
+
+    public void SetFigureQuadStartRotation(Vector3 startRotation)
+    {
+        foreach (FigureQuad figureQuad in _figureQuads)
+            figureQuad.transform.rotation = Quaternion.Euler(startRotation);
+    }
+
+    public void ChangeOrderLayerOfFigure(int changeAmount)
+    {
+        foreach (FigureQuad figureQuad in _figureQuads)
+            figureQuad.GetComponent<SpriteRenderer>().sortingOrder += changeAmount;
     }
 }
